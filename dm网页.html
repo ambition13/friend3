@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邓力鸣</title>
+    <style>*{
+        padding: 0 ;
+        margin:0;
+        box-sizing: border-box;;
+    }
+    body{
+        justify-content: center;
+        align-items: center;
+        height:100vh;
+        background-color: rgb(192, 223, 241);
+    }
+        .hello{
+            width: 90%;
+            height:700px;
+            display:flex;
+        }    
+        .box{
+            flex: 1;
+            overflow: hidden;
+            transition: .5s;
+            margin: 0 20px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0,. 5);
+            border-radius:20px;
+            border:10px solid #fff;
+            background-color:#fff;
+        }
+        .box>img{
+            width:200%;
+            height:85%;
+            object-fit: cover;
+            transition:.5s;
+        }
+        .box>span{
+            font:200 45px'优设标题黑';
+            text-align: center;
+            height:15%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .box:hover{
+            flex-basis: 40%;
+        }
+        .box:hover>img{
+            width:100%;
+            height:100%;
+        }
+        .header{
+            background-color: rgb(185, 185, 245);
+            padding: 20px;
+            text-align: center;
+            
+        }
+        
+        .shell{
+        width: 100%;
+        height:100%;
+        overflow: hidden;}
+     .page{
+        transform: translateX(-110%);
+        position: absolute;
+        width:50%;
+        height: 100%;
+        transition:.5s;
+        background-size: cover;
+    }
+    .button{
+        display: block;
+        width: 10%;
+        color: #fff;
+        font-size: 30px;
+        border-bottom: #fff solid 4px;
+        text-align: center;
+        position: absolute;
+        bottom: 10px;
+        margin: 50px;
+        left:calc(50% + (var(--i)*17%));
+        z-index: 999;
+        transition: .3s;
+        top:1400px;
+    }
+    .page_content{
+        box-sizing: border-box;
+        height:100%;
+        padding: 50px;
+        color:#fff;
+        position:absolute;
+        left:100%;
+        display: none;
+        animation-name: fade;
+        animation-duration: .7s;
+        animation-iteration-count: 1;
+        opacity:1;
+    }
+    @keyframes fade{
+        0%{
+            opacity: 0;}
+        50%{
+            opacity: 0;
+        transform: translateY(-50px);}
+        100%{
+            opacity: 1;
+        transform:translateY(0px);}
+    }
+    input{
+        display: none;
+    }
+    input:checked+.page{
+        transform: translateX(0px);
+        transition:.4s;
+    }
+    input:checked+.page .page_content{
+        width:100%;
+        display:block;
+    }
+.page:nth-child(3){
+    background-image: url('/剪辑原素材/xx.jpg');
+}
+.page:nth-child(3).page .page_content{
+    background-color: rgb(185, 130, 130);
+}
+.page:nth-child(6){
+    background-image: url('/剪辑原素材/IMG_20220325_183226.jpg');
+}
+.page:nth-child(6).page .page_content{
+    background-color: rgb(173, 170, 226);
+}
+.page:nth-child(9){
+    background-image: url('/剪辑原素材/huahua.jpg');
+}
+.page:nth-child(9).page .page_content{
+    background-color: rgb(236, 180, 119);
+}
+.page h1{
+    font-size: 70px;
+}
+.page p{
+    font-size: 30px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0,.3);
+    border-radius: 10px;
+    margin:30px 0;
+
+}
+.page span{
+    font-size:30px ;
+    letter-spacing:2px;
+    color: rgb(56,56,56);
+}
+label:hover{
+    cursor:pointer;
+    border-bottom: solid 4px rgb(35, 35, 35);
+
+}
+.image-preloader {
+        position: fixed;
+        animation: preLoad 1s steps(1);
+        width: 1px;
+        height: 1px;
+      }
+      @keyframes preLoad {
+        0% {
+          background-image: url('/剪辑原素材/1介绍.jpg');
+        }
+        10% {
+          background-image: url('/剪辑原素材/feg.JPG');
+        }
+        20% {
+          background-image: url('/剪辑原素材/zhlq.JPG');
+        }
+        30% {
+          background-image: url('/剪辑原素材/cf2.jpg');
+        }
+        40% {
+          background-image: url('/剪辑原素材/sg.JPG');
+        }
+        100% {
+          display: none;
+        }
+      }
+      
+      .container {
+        position: relative;
+        width: 420px;
+        height: 420px;
+        border: #fff solid 2px;
+        border-radius: 4px;
+      }
+      
+      .title2 {
+        position: absolute;
+        top: 45px;
+        left:50px;
+        width: 100%;
+        font-size: 2em;
+        font-weight: normal;
+        line-height: 1;
+      }
+      
+      .book {
+        position:relative;
+        perspective: 630px;
+        perspective-origin: center 50px;
+        transform: scale(1.2);
+        filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.25));
+      }
+      
+      .bookpage {
+        width: 210px;
+        height: 300px;
+        background-color: #bbb;
+        position: absolute;
+        top: 0%;
+        right: 50%;
+        border: solid 2px #555;
+        transform-origin: 100% 100%;
+        background-size: 420px 300px;
+        background-position: center;
+        transform-style: preserve-3d;
+      }
+      
+      .bookpage:nth-child(1) {
+        transform: rotateX(60deg) rotateY(3deg);
+      }
+      
+      .bookpage:nth-child(2) {
+        transform: rotateX(60deg) rotateY(4.5deg);
+      }
+      
+      .bookpage:nth-child(3) {
+        transform: rotateX(60deg) rotateY(6deg);
+        animation: nextPage 25s infinite -24s steps(1);
+        background-size: 420px 300px;
+        background-position: -2px -2px;
+      }
+      
+      .bookpage:nth-child(4) {
+        transform: rotateX(60deg) rotateY(177deg);
+      }
+      
+      .bookpage:nth-child(5) {
+        transform: rotateX(60deg) rotateY(175.5deg);
+      }
+      
+      .bookpage:nth-child(6) {
+        transform: rotateX(60deg) rotateY(174deg);
+        overflow: hidden;
+      }
+      
+      .bookpage:nth-child(6)::after {
+        content: '';
+        width: 210px;
+        height: 300px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform-origin: center;
+        transform: rotateY(180deg);
+        animation: nextPage 25s -20s infinite steps(1);
+        background-size: 420px 300px;
+        background-position: 100% -2px;
+      }
+      
+      @keyframes nextPage {
+        0% {
+          background-image: url('/剪辑原素材/1介绍.jpg');
+        }
+      
+        20% {
+          background-image: url('/剪辑原素材/feg.JPG');
+        }
+      
+        40% {
+          background-image: url('/剪辑原素材/zhlq.JPG');
+        }
+      
+        60% {
+          background-image: url('/剪辑原素材/cf2.jpg');
+        }
+      
+        80% {
+          background-image: url('/剪辑原素材/sg.JPG');
+        }
+      }
+      
+      .gap {
+        width: 10px;
+        height: 300px;
+        background: none;
+        transform: rotateX(60deg);
+        transform-origin: bottom;
+        position: absolute;
+        top: 0%;
+        left: calc(50% - 5px);
+      }
+      
+      .gap::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        background-color: #555;
+        width: 10px;
+        height: 5px;
+        border-radius: 50%;
+      }
+      
+      .bookpages,
+      .flips {
+        transform-style: preserve-3d;
+      }
+      
+      .flip {
+        width: 32px;
+        height: 300px;
+        position: absolute;
+        top: 0px;
+        transform-origin: 100% 100%;
+        right: 100%;
+        border: solid #555;
+        border-width: 2px 0px;
+        perspective: 4200px;
+        perspective-origin: center;
+        transform-style: preserve-3d;
+        background-size: 420px 300px;
+      }
+      
+      .flip::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0%;
+        width: 100%;
+        height: 100%;
+        transform-origin: center;
+        background-size: 420px 300px;
+      }
+      
+      .flip.flip1 {
+        right: 50%;
+        animation: flip1 5s infinite ease-in-out;
+        border-width: 2px 2px 2px 0px;
+      }
+      
+      .flip.flip1::after {
+        animation: nextFlip1 25s -20s infinite steps(1);
+      }
+      
+      .flip:not(.flip1) {
+        right: calc(100% - 2px);
+        top: -2px;
+        transform-origin: right;
+        animation: flip2 5s infinite ease-in-out;
+      }
+      
+      .flip.flip2::after {
+        animation: nextFlip2 25s -20s infinite steps(1);
+      }
+      
+      .flip.flip3::after {
+        animation: nextFlip3 25s -20s infinite steps(1);
+      }
+      
+      .flip.flip4::after {
+        animation: nextFlip4 25s -20s infinite steps(1);
+      }
+      
+      .flip.flip5::after {
+        animation: nextFlip5 25s -20s infinite steps(1);
+      }
+      
+      .flip.flip6::after {
+        animation: nextFlip6 25s -20s infinite steps(1);
+      }
+      
+      .flip.flip7::after {
+        animation: nextFlip7 25s -20s infinite steps(1);
+      }
+      
+      .flip.flip7 {
+        width: 30px;
+        border-width: 2px 0px 2px 2px;
+      }
+      
+      @keyframes flip1 {
+      
+        0%,
+        20% {
+          transform: rotateX(60deg) rotateY(6deg)
+        }
+      
+        80%,
+        100% {
+          transform: rotateX(60deg) rotateY(174deg)
+        }
+      }
+      
+      @keyframes flip2 {
+      
+        0%,
+        20% {
+          transform: rotateY(0deg) translateY(0px)
+        }
+      
+        50% {
+          transform: rotateY(-15deg) translateY(0px)
+        }
+      }
+      
+      @keyframes nextFlip1 {
+        0% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -178px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        10% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -210px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        20% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -178px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        30% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -210px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        40% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -178px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        50% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -210px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        60% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -178px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        70% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -210px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        80% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -178px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        90% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -210px -2px;
+          transform: rotateY(180deg);
+        }
+      }
+      
+      @keyframes nextFlip2 {
+        0% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -148px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        10.5% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -238px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        20% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -148px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        30.5% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -238px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        40% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -148px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        50.5% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -238px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        60% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -148px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        70.5% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -238px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        80% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -148px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        90.5% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -238px -2px;
+          transform: rotateY(180deg);
+        }
+      }
+      
+      @keyframes nextFlip3 {
+        0% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -118px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        11% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -268px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        20% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -118px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        31% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -268px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        40% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -118px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        51% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -268px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        60% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -118px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        71% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -268px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        80% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -118px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        91% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -268px -2px;
+          transform: rotateY(180deg);
+        }
+      }
+      
+      @keyframes nextFlip4 {
+        0% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -88px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        11.5% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -298px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        20% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -88px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        31.5% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -298px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        40% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -88px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        51.5% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -298px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        60% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -88px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        71.5% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -298px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        80% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -88px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        91.5% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -298px -2px;
+          transform: rotateY(180deg);
+        }
+      }
+      
+      @keyframes nextFlip5 {
+        0% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -58px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        12% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -328px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        20% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -58px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        32% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -328px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        40% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -58px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        52% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -328px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        60% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -58px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        72% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -328px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        80% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -58px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        92% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -328px -2px;
+          transform: rotateY(180deg);
+        }
+      }
+      
+      @keyframes nextFlip6 {
+        0% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -28px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        12.5% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -358px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        20% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -28px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        32.5% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -358px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        40% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -28px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        52.5% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -358px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        60% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -28px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        72.5% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -358px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        80% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -28px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        92.5% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -358px -2px;
+          transform: rotateY(180deg);
+        }
+      }
+      
+      @keyframes nextFlip7 {
+        0% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -2px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        13% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -388px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        20% {
+          background-image: url("/剪辑原素材/feg.JPG");
+          background-position: -2px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        33% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -388px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        40% {
+          background-image: url("/剪辑原素材/zhlq.JPG");
+          background-position: -2px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        53% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -388px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        60% {
+          background-image: url("/剪辑原素材/cf2.jpg");
+          background-position: -2px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        73% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -388px -2px;
+          transform: rotateY(180deg);
+        }
+      
+        80% {
+          background-image: url("/剪辑原素材/sg.JPG");
+          background-position: -2px -2px;
+          transform: rotateY(0deg);
+        }
+      
+        93% {
+          background-image: url("/剪辑原素材/1介绍.jpg");
+          background-position: -388px -2px;
+          transform: rotateY(180deg);
+        }
+      }
+     .love{
+        position: relative;
+        width:70%;
+        padding:50px;
+     }
+     .love h2{
+        color:rgb(123, 150, 241);
+        font-size: 90px;
+        margin-left: 300px;
+        font:500 50px'优设标题黑';
+     }
+     .love p{
+        color:rgb(98, 98, 98);
+        font-size: 30px;
+        text-align: justify;
+     }
+     .love .left{
+        height:500px;
+        float:left;
+        shape-margin: 20px;
+        shape-outside: url(/剪辑原素材/让我先.png);
+     }
+     .love .right{
+        height:400px;
+        float:right;
+       margin: 300px -500px 0 0;
+        shape-outside: url(/剪辑原素材/lsy.png);
+
+     }
+        </style>
+</head>
+<body>
+    <div class="header">
+        <h1>邓力鸣的个人网站</h1>
+    </div>
+    <div class="hello">
+        <div class="box">
+            <img src="/剪辑原素材/个人成长.jpg">
+            <spam>个人成长<br>（图为邓力鸣周岁生日宴）</spam>
+        </div>
+        <div class="box">
+            <img src="/剪辑原素材/xysh.jpg">
+            <spam>校园生活</spam>
+        </div>
+        <div class="box">
+            <img src="/剪辑原素材/jscj.jpg">
+            <spam>竞赛成就<br>(上图为邓力鸣荣获奥斯卡最佳男主角电影《手机》剧照）</spam>
+        </div>
+        <div class="box">
+            <img src="/剪辑原素材/qgjl.JPG">
+            <spam>情感经历<br>（图文无关）</spam>
+        </div>
+        <div class="box">
+            <img src="/剪辑原素材/rjgx.JPG">
+            <spam>人际关系</spam>
+        </div>
+    </div>
+    <div class="shell">
+        <label for="button1" class="button" style="--i:0">小学生活</label>
+        <input type="radio" id="button1" name="page" >
+        <div class="page">
+            <div class="page_content">
+            <h1>天才少年的出生</h1>
+            <p>邓力鸣，男，1958年生，现年64岁（据其QQ资料记载）。</p>
+            <span>出生三小时学会说话走路，三个月即可与爸妈流畅吵架。一岁掌握架子鼓，两岁精通马术，三岁学会C语言，五岁跳级进入遵义市文化小学六一班，认识了他的毕生好友兼人生导师yyk。他自幼能歌善舞，天资聪颖，十一岁即被世界顶尖学府贵阳一中录取，荣幸地成为人生导师yyk的同学兼陪读</span>
+        </div>
+    </div>
+    
+        <label for="button2" class="button" style="--i:1">全面发展</label>
+        <input type="radio" id="button2" name="page" >
+        <div class="page">
+            <div class="page_content">
+            <h1>奉献自我</h1>
+            <p>其班主任段女士（同时也是DQ冰淇淋创始人）称：“从未见过如此优秀的杂物部长”</p>
+            <span>在班级五十年一度的杂物部选举中，邓力鸣以压倒性的优势获得绝对选票当选杂物部长（参选人数：1人）。
+                <br>在任第十年时，邓力鸣做出了一个违背祖宗的决定，他率先独创“教室后插座连接排插制度”，极大的方便了手机平板在课间需要充电的人民群众。<br>（左图为邓力鸣部长利用午休间隙匆匆吃饭）</span>
+        </div>
+    </div>
+ 
+        <label for="button3" class="button" style="--i:2">国际奖项</label>
+        <input type="radio" id="button3" name="page" >
+        <div class="page">
+            <div class="page_content">
+            <h1>艺术疯子</h1>
+            <p>艺高人胆大，技多不压身</p>
+            <span>邓力鸣多次包揽国内外数字油画最高奖项。然而面对来自世界各地的赞美与崇拜，他不屑一顾，只在画到极致之时在贴贴里向朋友们感叹一句“还要画多久”。<br>如此超然物外的精神，或许正是他取得无数荣誉的原因吧。</span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1 class="title2">邓力鸣的艺术相册</h1>
+    <div class="book">
+        <div class="gap"></div>
+        <div class="bookpages">
+            <div class="bookpage"> </div>
+            <div class="bookpage"> </div>
+            <div class="bookpage"> </div>
+            <div class="bookpage"> </div>
+            <div class="bookpage"> </div>
+            <div class="bookpage"> </div>
+        </div>
+        <div class="flip flip1">
+            <div class="flip flip2">
+                <div class="flip flip3">
+                    <div class="flip flip4">
+                        <div class="flip flip5">
+                            <div class="flip flip6">
+                                <div class="flip flip7"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+<div class="love">
+    <img src="/剪辑原素材/让我先.png" alt="" class="left">
+    <img src="/剪辑原素材/罗舒伊.png" alt="" class="right">
+    <h2>惊！Mr.Deng被曝与多人有染</h2>
+    <p>邓力鸣作为国民偶像，向来以“超长花期”“守身如玉”等人设拥有超高人气。然而小编所在台媒社近日得到一组他与多人的亲密照片，难道昔日的翩翩公子人设就要崩塌？！这是怎么一回事呢？汗小编一起来看看吧！</p>
+    
+    <p> <br>左图为邓力鸣与一圈外男子合影，举止亲昵，笑容甜蜜，颇有情侣氛围，让人直呼“嗑到了”。照片一经爆出，邓力鸣围脖迅速沦陷。其经纪人连忙发声：只是多年好友，线下正常聚会，请勿传播谣言。是真是假，让人浮想联翩。</p>
+<p><br>正所谓一波未平一波又起，这边“男友门”风波未止，狗仔又乘势爆出邓力鸣与一妙龄女子亲密合影，两人似早已熟识，毫不避讳。消息一出，邓力鸣的妈妈粉纷纷怒斥经纪人，称“他只是个六十四岁的孩子，怎么可以早恋”。目前尚未有官方回复。</p>
+<p><br>这两件令人大跌眼镜的事震惊一众网友，大家纷纷在社交媒体上感慨：果然鱼乐圈都不能信任！</p>
+</div>
+</body>
+</html>
